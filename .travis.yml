@@ -1,14 +1,14 @@
 sudo: required
 dist: trusty
 before_install:
-- sudo apt-get -qq update && sudo apt-get install -y --no-install-recommends texlive-fonts-recommended
-  texlive-latex-extra texlive-fonts-extra dvipng texlive-latex-recommended
+- "sudo apt-get update && sudo apt-get install --no-install-recommends texlive-fonts-recommended texlive-latex-extra texlive-fonts-extra texlive-latex-recommended dvipng"
 script:
 - mkdir _build
 - pdflatex -interaction=nonstopmode -halt-on-error -output-directory _build *.tex
 deploy:
   provider: releases
   api_key:
+      secure: lJij13kwbQyLYEzT3bT7UWNsVCZlQJo6nIn6S6HgDHlKmOJxGwB04omag/BUDxBVSiOFI54pMQUtcGEENwrC3qFCc2m+8sBIisUE8FKxaI2mK+CXhAvlw6oXU4aqoo96QRiGI5UYNKibGpKirQ8lkEhz5FO5Q3IO22bkyPd7A5n08HiTu4qj/O65SKrGSFQjoJkmOeniSpqOxE+QGJrUQ13sY8nJgz1DU5GkZH56L1Jfu3xOWEAZedFHTBCBJGzQR70J51pAd/RPiJoRpXgq9qe2OLQsxB+3CnIqVwdlWB4XjvghObhxcqXA6kdVnka/8cYpPj/KRvZoBEBJXZZBF3gLWTpp7J1s3C9nG05F+F8kZNw6jc08q/Y5/vI8wT4KOxiA/WhtPn18nwXQpQHOVMxw6XVnyVbKLPCKxGh/q5175+ZkAHrTvAoEW0/li25Ub93z6MC0yBUHWptfCkOSOCHd2EI4AMyyGjKvz10zBkRsGo8w80NeKWdj7EGCDO9sIBDih/s3Hpobdj7QwGw1H5b09MWUol8nUBDkAD0w6bNANdEEjNJt8vN7ALszPE+7xD3xstWMaUCslPl2enrnA90heNou0i8gZl+9mJ/E6ByFt+IH5Q6FVa7F/j3SxPxl3mZzgN1DD8gjOW29Bas/klnYl/Jr9Cji5Xs0eGzaqdU=
    file:
   - _build/*.pdf
   skip_cleanup: true
