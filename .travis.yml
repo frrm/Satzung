@@ -9,6 +9,11 @@ script:
 - pdflatex -interaction=nonstopmode -halt-on-error -output-directory _build Beitragsordnung.tex
 - pdflatex -interaction=nonstopmode -halt-on-error -output-directory _build Geschäftsordnung.tex
 - pdflatex -interaction=nonstopmode -halt-on-error -output-directory _build Satzung_CCC_Ulm.tex
+ before_deploy:
+      # Set up git user name and tag this commit
+      - git config --local user.name "Max-Travis"
+      - git config --local user.email "travis@maxrink.de"
+      - git tag "$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)"
 deploy:
   provider: releases
   api_key:
