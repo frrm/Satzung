@@ -21,4 +21,7 @@ deploy:
   skip_cleanup: true
   on:
     repo: MaxRink/CCC-Ulm-Satzung
-    branch: Stand-14.02.2018
+    branch: 
+    - "Stand-14.02.2018"
+    - "inProgress"
+    
