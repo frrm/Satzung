@@ -7,6 +7,7 @@ script:
 - mkdir _build
 - pdflatex -interaction=nonstopmode -halt-on-error -output-directory _build AnmerkungenSatzung.tex
 - pdflatex -interaction=nonstopmode -halt-on-error -output-directory _build Beitragsordnung.tex
+- pdflatex -interaction=nonstopmode -halt-on-error -output-directory _build Geschäftsordnung.tex
 - pdflatex -interaction=nonstopmode -halt-on-error -output-directory _build Satzung_CCC_Ulm.tex
 deploy:
   provider: releases
@@ -15,6 +16,7 @@ deploy:
   file: 
   - "_build/AnmerkungenSatzung.pdf"
   - "_build/Beitragsordnung.pdf"
+  - "_build/Geschäftsordnung.pdf"
   - "_build/Satzung_CCC_Ulm.pdf"
   skip_cleanup: true
   on:
