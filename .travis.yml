@@ -8,12 +8,6 @@ script:
  - pdflatex -interaction=nonstopmode -halt-on-error -output-directory _build Beitragsordnung.tex
  - pdflatex -interaction=nonstopmode -halt-on-error -output-directory _build Geschäftsordnung.tex
  - pdflatex -interaction=nonstopmode -halt-on-error -output-directory _build Satzung_CCC_Ulm.tex
-before_deploy:
- - git config --local user.name "Max-Travis"
- - git config --local user.email "travis@maxrink.de"
- - git tag "$(date +'%Y%m%d%H%M')"
- - git push origin --tags
- - git fetch origin
 deploy:
   provider: releases
   api_key:
@@ -27,7 +21,4 @@ deploy:
   name: Satzung Stand $(date +'%d.%m.%Y %R')
   on:
     repo: MaxRink/CCC-Ulm-Satzung
-    branch: 
-     - "Stand-14.02.2018"
-     - "inProgress"
-    
+    tags: true
