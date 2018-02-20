@@ -12,6 +12,8 @@ before_deploy:
  - git config --local user.name "Max-Travis"
  - git config --local user.email "travis@maxrink.de"
  - git tag "$(date +'%Y%m%d%H%M')"
+ - git push origin --tags
+ - git fetch origin
 deploy:
   provider: releases
   api_key:
