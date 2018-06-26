@@ -4,21 +4,17 @@ before_install:
  - sudo apt-get update && sudo apt-get install --no-install-recommends texlive-full
 script:
  - mkdir _build
- - pdflatex -interaction=nonstopmode -halt-on-error -output-directory _build AnmerkungenSatzung.tex
- - pdflatex -interaction=nonstopmode -halt-on-error -output-directory _build Beitragsordnung.tex
- - pdflatex -interaction=nonstopmode -halt-on-error -output-directory _build Geschäftsordnung.tex
- - pdflatex -interaction=nonstopmode -halt-on-error -output-directory _build Satzung_CCC_Ulm.tex
+ - pdflatex -interaction=nonstopmode -halt-on-error -output-directory _build Vereinsordnung.tex
+ - pdflatex -interaction=nonstopmode -halt-on-error -output-directory _build Satzung_FRRM_Ulm.tex
 deploy:
   provider: releases
   api_key:
     secure: Kamf/rdF3awGSqKpITQShsZYXVsxW1pxwvqFWdEOvPJBW4sLTy+GLe68YSvlUvnW43Gr8G5AnVRUm7Up70fRlcrocu9Lj7BWcfa6tPzeOzPVX70JwZSUFqRlKPNWC2KNVB3SgJdR2bx0RCoQJaMaxHPMaBZdsnfCZs8j1GDKxNICZGxfjZBtus1X87rOQhVUhXsa39HKqzPqvOgGp+oTg1Bqe/IvlFCErQ0cbHNXVu+EUPdvembxmzrVYoXSyIen2+yQ5IcTmtSiO/U2s0pLloY+VUS17sozo9HMw0jtqi+oYjv0n8kCSB5/qXlCnK4EgPJN3/49CnyJPet0cLfONbIA50jVvvDRTnO6MQb0US5GlXno9sVnbre231NOD/CXK91UbRuYxT6Sgl3IfezxvhkLPTzmYGCgaPfV3fqEsthbQRA0Kwc+kfMI8ONkzhgKz5BQfs4GjkD/MDr2xvM/ivG/mPp+oFWx1QvjFS/8VOshLn020TSkzb1efzvWqvBglYl+32tRZjPg/jD73Uk+SfbscsfW2dE/y5DJUZOiVw4eUblRQDu3RMBXW8vQ3kEAgzroqAH5QFuRwf4eR8FoaCITrrOW+lRYkV5Cb+EEsY6XduiDfpWfUKnj5XO8ZE4k1+NHtUBwWHQ/+sJdV8d/aTztxD3ReM8AioGhjuu7XEg=
   file: 
-   - "_build/AnmerkungenSatzung.pdf"
-   - "_build/Beitragsordnung.pdf"
-   - "_build/Geschäftsordnung.pdf"
-   - "_build/Satzung_CCC_Ulm.pdf"
+   - "_build/Vereinsordnung.pdf"
+   - "_build/Satzung_FRRM_Ulm.pdf"
   skip_cleanup: true
-  name: Satzung Stand $(date +'%d.%m.%Y %R')
+  name: FRRM Stand $(date +'%d.%m.%Y %R')
   on:
     repo: MaxRink/CCC-Ulm-Satzung
     tags: true
